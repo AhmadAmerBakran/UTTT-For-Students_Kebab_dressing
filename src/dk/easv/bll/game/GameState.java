@@ -24,6 +24,8 @@ public class GameState implements IGameState{
         roundNumber = state.getRoundNumber();
     }
 
+
+
     @Override
     public IField getField() {
         return field;
