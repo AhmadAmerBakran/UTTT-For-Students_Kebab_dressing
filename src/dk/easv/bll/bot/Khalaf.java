@@ -41,6 +41,7 @@ public class Khalaf implements IBot{
 
 
         opponent = (state.getMoveNumber()+1)%2;
+        int simulations = 0;
 
         while(System.currentTimeMillis() < endTime)
         {
@@ -63,8 +64,10 @@ public class Khalaf implements IBot{
 
             int rolloutResult = performRollout(nodeToExplore);
             backPropagation(nodeToExplore, rolloutResult);
+            simulations++;
         }
         Node winnerNode = rootNode.getChildWithMaxScore();
+        System.out.println("Simulations: " + simulations);
         return getMove(rootNode, winnerNode);
     }
 
